@@ -40,7 +40,7 @@ class Hp816xModel(IntEnum):
     HP8163AB = auto()
     HP8164AB = auto()
     HP8166AB = auto()
-    N7744xA = auto()
+    N774xA = auto()
 
 
 # Slot info
@@ -2302,8 +2302,8 @@ class Hp816xDriver(object):
             arraySize = ViInt32(5)
         elif self.__model_name == Hp816xModel.HP8166AB:
             arraySize = ViInt32(18)
-        elif self.__model_name == Hp816xModel.N7744xA:
-            arraySize = ViInt32(4)
+        elif self.__model_name == Hp816xModel.N774xA:
+            arraySize = ViInt32(5)
         else:
             raise RuntimeError("Unsupported hp816x model")
         slotInformation = (ViInt32 * arraySize.value)()
@@ -2323,6 +2323,8 @@ class Hp816xDriver(object):
             moduleStatusArray = (ViInt32 * 5)()
         elif self.__model_name == Hp816xModel.HP8166AB:
             moduleStatusArray = (ViInt32 * 18)()
+        elif self.__model_name == Hp816xModel.N774xA:
+            moduleStatusArray = (ViInt32 * 5)()
         else:
             raise RuntimeError("Unsupported hp816x model")
         self.__check_error(
